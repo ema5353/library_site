@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+            <p>{{ book.title }}</p>
+            <p>{{ book.author.name }}</p>
+            <p>{{ book.publisher.name }}</p>
+            <p>{{ book.publication_date }}</p>
+
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+    </form>
+{% endblock %}
