@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
 {% block body %}
-            <p>{{ book.title }}</p>
-            <p>{{ book.author.name }}</p>
-            <p>{{ book.publisher.name }}</p>
-            <p>{{ book.publication_date }}</p>
+    <a href="{% url 'book-list' %}">All books</a><br>
+    <hr>
+    <p><b>title:</b> {{ book.title }}</p>
+            <p><b>author:</b> {{ book.author.name }}</p>
+            <p><b>publisher:</b> {{ book.publisher.name }}</p>
+            <p><b>publication_date:</b> {{ book.publication_date }}</p>
 
     <br>
-    <form method="post">
+    <form role="form" method="post" style="max-width: 300px">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit">
+        {% bootstrap_form form %}
+        {% buttons submit='OK' %}{% endbuttons %}
     </form>
 {% endblock %}

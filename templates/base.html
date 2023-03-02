@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 <head>
     <meta charset="UTF-8">
     <title>Сайт библиотеки</title>
 </head>
 <body>
+    <div class="container py-3">
     {% block body %}
     {% endblock %}
+    </div>
 </body>
 </html>
