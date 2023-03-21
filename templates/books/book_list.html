@@ -6,10 +6,10 @@
     {% for book in object_list %}
 
         <li>
-            <p><a href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></p>
-            <p>{{ book.author.name }}</p>
-            <p>{{ book.publisher.name }}</p>
-            <p>{{ book.publication_date }}</p>
+            <p><a href="{% url 'book-detail' book.pk %}"><b>title</b>: {{ book.title }}</a></p>
+            <p><b>authors:</b> {{ book.authors.all|join:", " }}</p>
+            <p><b>publisher:</b> {{ book.publisher.name }}</p>
+            <p><b>publication_date:</b> {{ book.publication_date }}</p>
         </li>
 
     {% endfor %}

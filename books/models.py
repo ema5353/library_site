@@ -19,7 +19,7 @@ class Publisher(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=150)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     publication_date = models.DateTimeField(auto_now_add=True)
 
