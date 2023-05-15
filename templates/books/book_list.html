@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% block body %}
-
+{% if request.user.is_authenticated %}
+<a href="{% url 'profile' %}">Profile</a> <a href="{% url 'logout' %}">logout</a>
+{% endif %}
+<hr>
 <h1>All books: </h1>
     <ul>
     {% for book in object_list %}
-
         <li>
             <p><a href="{% url 'book-detail' book.pk %}"><b>title</b>: {{ book.title }}</a></p>
             <p><b>authors:</b> {{ book.authors.all|join:", " }}</p>
             <p><b>publisher:</b> {{ book.publisher.name }}</p>
             <p><b>publication_date:</b> {{ book.publication_date }}</p>
         </li>
-
     {% endfor %}
     </ul>
 {% endblock %}
